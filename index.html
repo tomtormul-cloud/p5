@@ -6,8 +6,16 @@
   <title>p5 - Dieter Roth - T u tu ut</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; text-align: center; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    .wrap { margin-top: 6rem; line-height: 0.75; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+   }
+   body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: white;
+}
+    .wrap { line-height: 0.75; }
 
     p {
       color: black;
@@ -22,11 +30,16 @@
       padding: 0.3em;
       margin: -0.3em;              
     }
-
     
     .char:hover {
       opacity: 1;
       --dur: 0s;    }
+    
+
+p:hover {
+  cursor: crosshair;
+}
+
   </style>
 </head>
 <body>
