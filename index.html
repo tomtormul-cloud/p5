@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>p5 - Dieter Roth - T u tu ut</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; text-align: center; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .wrap { margin-top: 6rem; line-height: 0.75; }
+
+    p {
+      color: black;
+      font-family: monospace;
+      font-size: 18px;
+    }
+
+    .char {
+      display: inline-block;          
+      opacity: 0.05;                  
+      transition: opacity var(--dur, 7.5s) ease;
+      padding: 0.3em;
+      margin: -0.3em;              
+    }
+
+    
+    .char:hover {
+      opacity: 1;
+      --dur: 0s;    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="text-container">
+
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+    <p>tutututututututututututututututututututututututututututututututu</p>
+    <p>utututututututututututututututututututututututututututututututut</p>
+  </div>
+
+  <script>
+    
+    function escapeHTML(str) {
+      return str.replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('text-container');
+      if (!container) return;
+
+      
+      const paragraphs = container.querySelectorAll('p');
+
+      paragraphs.forEach(p => {
+        const text = p.textContent; 
+        
+        const spans = Array.from(text).map(ch => {
+          
+          if (ch === ' ') return '<span class="char">&nbsp;</span>';
+          if (ch === '\n') return '<span class="char">&#10;</span>';
+          return `<span class="char">${escapeHTML(ch)}</span>`;
+        }).join('');
+        p.innerHTML = spans;
+      });
+    });
+  </script>
+</body>
+</html>
